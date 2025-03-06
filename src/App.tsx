@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import Reactfrom "react";
 import { Routes, Route} from "react-router-dom";
 import "./App.css"
 import Login from "./Components/Login";
@@ -10,7 +10,7 @@ import Originals from "./Components/Originals";
 import Watchlist from "./Components/Watchlist";
 
 const App=()=>{
-  
+
   return(
     <div >
 
