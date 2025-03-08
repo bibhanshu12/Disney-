@@ -1,5 +1,10 @@
 import styled from "styled-components";
 import ImgSlider from "./ImgSlider";
+import Viewers from "./Viwers";
+import Recommend from "./Recommend";
+import NewDisney from "./NewDisney";
+import Originals from "./Originals";
+import Trending from "./Trending";
 
 const Home:React.FC=()=>{
 
@@ -8,6 +13,11 @@ const Home:React.FC=()=>{
         <>
         <HomeContainer>
             <ImgSlider/>
+            <Viewers/>
+            <Recommend/>
+            <NewDisney/>
+            <Originals/>
+            <Trending/>
         </HomeContainer>
         </>
     )

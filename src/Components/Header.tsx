@@ -7,7 +7,7 @@ import { Link, NavLink } from "react-router-dom";
 
 import {
   selectuserName,
-  selectuserEmail,
+  // selectuserEmail,
   selectuserPhotos,
   setusersLogindetails,setuserSignoutstate
 } from "../features/users/userSlice";
@@ -18,7 +18,7 @@ const Header: React.FC = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const username = useSelector(selectuserName);
-  const email = useSelector(selectuserEmail);
+  // const email = useSelector(selectuserEmail);
   const userPhoto = useSelector(selectuserPhotos);
   const [isAuthChecked, setIsAuthChecked] = useState(false);
 
@@ -27,14 +27,16 @@ const Header: React.FC = () => {
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
-        setUser(user);
+        // Wait a moment to ensure all user data is loaded
+        setTimeout(() => {
+          console.log("User photo after delay:", user.photoURL);
+          setUser(user);
+        }, 500);
       }
-      setIsAuthChecked(true); // Auth check complete
+      setIsAuthChecked(true);
     });
-
-    return () => unsubscribe(); // Cleanup on unmount
+    return () => unsubscribe();
   }, []);
-
 
   const handleauth = () => {
     if (!username) {
@@ -111,7 +113,11 @@ const Header: React.FC = () => {
       </NavMenu>
 
       <SignOut>
-        <UserImg src={userPhoto} alt={email} />
+      {userPhoto ? (
+  <UserImg src={userPhoto} alt={username} />
+) : (
+  <UserImg src="/images/default-user.png" alt="Default User" />
+)}
         <DropDown>
             <span onClick={handleauth}>SignOut </span>
         </DropDown>
@@ -241,14 +247,13 @@ const NavMenu = styled.div`
 `;
 
 const UserImg=styled.img`
-    height:40px;
-    width:40px;
+    height:30px;
+    width:30px;
     border-radius:50%;
     letter-spacing:0;
     margin-right:12px;
-    
-   
-
+    object-fit: cover; 
+    border: 1px solid transparent; 
 `;
 
 

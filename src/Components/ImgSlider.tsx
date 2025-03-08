@@ -20,31 +20,40 @@ const ImgSlider:React.FC=()=>{
         autoplay={{delay:3000}}
         loop={true}
         speed={500}
-        slidesPerView={1}  
+        slidesPerView={1.05} 
+        centeredSlides={true} 
         spaceBetween={20} 
         >
             
             <SwiperSlide>
                 <NavLink to="/movies">
+                   <Wrap>
                     <SlideImg src="images/slider-badag.jpg" alt="badag " />
+                    </Wrap>
                 </NavLink>
                 
             </SwiperSlide>
             <SwiperSlide>
                 <NavLink to="/movies">
+                <Wrap>
                 <SlideImg src="images/slider-badging.jpg" alt="badag " />
+                </Wrap>
                 </NavLink>
             </SwiperSlide>
 
             <SwiperSlide>
                 <NavLink to="/movies">
+                <Wrap>
                     <SlideImg src="images/slider-scale.jpg" alt="badag " />
+                    </Wrap>
                 </NavLink>
                 
             </SwiperSlide>
             <SwiperSlide>
                 <NavLink to="/movies">
+                <Wrap>
                 <SlideImg src="images/slider-scales.jpg" alt="badag " />
+                </Wrap>
                 </NavLink>
             </SwiperSlide>
             
@@ -58,13 +67,14 @@ const ImgSlider:React.FC=()=>{
 
 const SwiperContainer=styled.div`
    width: 100%;
-  min-width: 350px; /* Adjust as per requirement */
+  min-width: 350px; 
   margin: auto;
   margin-top:30px;
   position: relative;
+ padding: 0px 10px;
 
- &:hover{
- outline: 2px solid white; /* Outline instead of border */}
+
+ 
 `;
 
 
@@ -96,12 +106,15 @@ padding-bottom:90vw;
   height: 12px;
   width: 12px;
   opacity: 0.6;
+  
+  
 }
 
 .swiper-pagination-bullet-active {
   background: white;
   opacity: 1;
 }
+  
 
 
 `;
@@ -113,15 +126,34 @@ const SlideImg = styled.img`
   display: block;
   margin: auto;
   object-fit: cover;
-  border-radius: 5px;
+  border-radius: 10px;
   transition: all 0.3s ease-in-out;
+  
+ 
+  
+  
+ border:4px solid transparent;
 
-  &:hover {
-    
-    outline-offset: -2px; /* Keeps it close to the image */
-    box-shadow: 10px 10px 5px lightblue;
+
+&:hover {
+  border:4px solid white;
+  
   }
-`;
 
+  `;
+
+const Wrap=styled.div`
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 5px;
+  margin-bottom:40px;
+ box-shadow: rgb(0 0 0 / 35%) 0px 24px 30px -10px, 
+            rgb(0 0 0 / 40%) 0px 18px 20px -8px;
+
+
+
+
+
+`;
 
 export default ImgSlider;

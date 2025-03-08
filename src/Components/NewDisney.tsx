@@ -2,11 +2,11 @@ import styled from "styled-components";
 import React from "react";
 import { Link} from "react-router-dom";
 
-const Originals:React.FC=()=>{
+const NewDisney:React.FC=()=>{
 
     return(
         <Container>
-            <h4>Disney Originals</h4>
+            <h4>New Disney World</h4>
             <Content>
                 <Wrap>
                     <Link to="/" >
@@ -95,4 +95,4 @@ box-shadow: rgb(0 0 0 /69%) 0px 26px 30px -10px,
 
 
 
-export default Originals;
+export default NewDisney;
