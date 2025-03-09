@@ -10,22 +10,22 @@ const Originals:React.FC=()=>{
             <Content>
                 <Wrap>
                     <Link to="/" >
-                    <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/4622/1534622-v-49ee55ea1cae" alt="" />
+                    <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/5912/1739771945912-v" alt="" />
                     </Link>
                 </Wrap>
                 <Wrap>
                     <Link to="/" >
-                    <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/6846/1740399626846-v" alt="" />
+                    <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/5356/1355356-v-85602bb4a2c9" alt="" />
                     </Link>
                 </Wrap>
                 <Wrap>
                     <Link to="/" >
-                    <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/3568/1739621943568-v" alt="" />
+                    <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/4303/674303-v" alt="" />
                     </Link>
                 </Wrap>
                 <Wrap>
                     <Link to="/" >
-                    <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/5903/1075903-v-78f8f3679322" alt="" />
+                    <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/1636/1161636-v-1334423c2043" alt="" />
                     </Link>
                 </Wrap>
             </Content>

@@ -7,6 +7,7 @@ import Home from "./Components/Home";
 
 
 
+
 const App=()=>{
 
   return(
@@ -19,6 +20,7 @@ const App=()=>{
     
     <Route path='/' element={ <Login/>}  />
     <Route path='/home' element={ <Home/>}  />
+   
    
     
     </Routes>

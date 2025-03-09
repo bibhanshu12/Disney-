@@ -10,22 +10,22 @@ const NewDisney:React.FC=()=>{
             <Content>
                 <Wrap>
                     <Link to="/" >
-                    <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/4622/1534622-v-49ee55ea1cae" alt="" />
+                    <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/4801/1739444484801-v" alt="" />
                     </Link>
                 </Wrap>
                 <Wrap>
                     <Link to="/" >
-                    <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/6846/1740399626846-v" alt="" />
+                    <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/9878/1734608999878-v" alt="" />
                     </Link>
                 </Wrap>
                 <Wrap>
                     <Link to="/" >
-                    <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/3568/1739621943568-v" alt="" />
+                    <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/9232/1734513359232-v" alt="" />
                     </Link>
                 </Wrap>
                 <Wrap>
                     <Link to="/" >
-                    <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/5903/1075903-v-78f8f3679322" alt="" />
+                    <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/5241/875241-v" alt="" />
                     </Link>
                 </Wrap>
             </Content>

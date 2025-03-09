@@ -5,9 +5,29 @@ import Recommend from "./Recommend";
 import NewDisney from "./NewDisney";
 import Originals from "./Originals";
 import Trending from "./Trending";
+import { useEffect } from "react";
+import { db } from "../firebase";
+import { useDispatch, UseDispatch,useSelector } from "react-redux";
+import { setMovies } from "../features/movies/movieSlice";
+import { selectuserName } from "../features/users/userSlice";
+import { collection, query, where, getDocs } from "firebase/firestore";
+
+
+
 
 const Home:React.FC=()=>{
 
+    const dispatch= useDispatch();
+    const userName=useSelector(selectuserName);
+
+    let recommends=[];
+    let originals=[];
+    let newDisney=[];
+    let trending=[];
+
+    useEffect(()=>{
+        
+    })
 
     return(
         <>

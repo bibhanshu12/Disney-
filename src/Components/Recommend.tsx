@@ -10,12 +10,12 @@ const Recommend:React.FC=()=>{
             <Content>
                 <Wrap>
                     <Link to="/" >
-                    <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/4622/1534622-v-49ee55ea1cae" alt="" />
+                    <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/6576/1734671316576-v" alt="" />
                     </Link>
                 </Wrap>
                 <Wrap>
                     <Link to="/" >
-                    <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/6846/1740399626846-v" alt="" />
+                    <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/1292/1741139391292-v" alt="" />
                     </Link>
                 </Wrap>
                 <Wrap>

@@ -20,12 +20,12 @@ const Trending:React.FC=()=>{
                 </Wrap>
                 <Wrap>
                     <Link to="/" >
-                    <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/3568/1739621943568-v" alt="" />
+                    <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/7502/1734341097502-v" alt="" />
                     </Link>
                 </Wrap>
                 <Wrap>
                     <Link to="/" >
-                    <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/5903/1075903-v-78f8f3679322" alt="" />
+                    <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/237/1734086580237-v" alt="" />
                     </Link>
                 </Wrap>
             </Content>
