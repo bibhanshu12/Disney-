@@ -1,40 +1,35 @@
 import styled from "styled-components";
 import React from "react";
 import { Link} from "react-router-dom";
+import { useSelector } from "react-redux";
+import { selectOriginal } from "../features/movies/movieSlice";
+
 
 const Originals:React.FC=()=>{
 
+    const movies=useSelector(selectOriginal);
     return(
         <Container>
             <h4>Disney Originals</h4>
             <Content>
-                <Wrap>
-                    <Link to="/" >
-                    <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/5912/1739771945912-v" alt="" />
-                    </Link>
-                </Wrap>
-                <Wrap>
-                    <Link to="/" >
-                    <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/5356/1355356-v-85602bb4a2c9" alt="" />
-                    </Link>
-                </Wrap>
-                <Wrap>
-                    <Link to="/" >
-                    <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/4303/674303-v" alt="" />
-                    </Link>
-                </Wrap>
-                <Wrap>
-                    <Link to="/" >
-                    <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/1636/1161636-v-1334423c2043" alt="" />
-                    </Link>
-                </Wrap>
+                    {movies && movies.map((movie,key)=>{
+
+                        return(
+                            <Wrap key={key}>
+                            <Link to={"/disneyoriginals/"+ movie.id} >
+                            <img src={movie.cardImg} alt={movie.title} />
+                            </Link>
+                        </Wrap>
+
+                        )
+                    })}
+              
             </Content>
         </Container>
 
         
     )
 }
-
 const Container=styled.div`
 
     padding: 0 0 26px;
@@ -46,18 +41,24 @@ margin:0px 10px;
 display:grid;
 grid-gap:25px;
 gap:25px;
-grid-template-columns:repeat(4,minmax(0,1fr));
+grid-template-columns:repeat(6,minmax(0,1fr));
 
+
+@media (max-width:1000px){
+    grid-template-columns:repeat(4,minmax(0,1fr));
+
+}
 
 @media (max-width:768px){
-    grid-template-columns:repeat(2,minmax(0,1fr));
+    grid-template-columns:repeat(3,minmax(0,1fr));
 
 }
 
 `;
 
+
 const Wrap=styled.div`
- aspect-ratio: 380 / 500;
+ aspect-ratio: 380 / 520;
 border-radius:10px;
 box-shadow: rgb(0 0 0 /69%) 0px 26px 30px -10px,
     rgb(0 0 0 /73%) 0px 16px 10px -10px;
@@ -89,9 +90,13 @@ box-shadow: rgb(0 0 0 /69%) 0px 26px 30px -10px,
         transform:scale(1.05);
         border-color:rgba(249,249,249,0.8);
     
+       
+    
     }
 
-`;
+
+
+    `;
 
 
 

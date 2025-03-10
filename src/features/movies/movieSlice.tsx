@@ -1,11 +1,22 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+interface Movie {
+    id: string;
+    title: string;
+    type: string;
+    backgroundImg: string;
+    cardImg: string;
+    description: string;
+    subTitle: string;
+    titleImg: string;
+    
+}
 
 interface movieInterface{
-    recommend:string[] | null;
-    newDisney:string[]| null;
-    original:string[]| null;
-    trending:string[]| null;
+    recommend:Movie[] | null;
+    newDisney:Movie[]| null;
+    original:Movie[]| null;
+    trending:Movie[]| null;
 } 
 
 const initialState={

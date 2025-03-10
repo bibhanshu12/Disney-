@@ -1,39 +1,33 @@
 import styled from "styled-components";
 import React from "react";
 import { Link} from "react-router-dom";
+import { useSelector } from "react-redux";
+import { selectTrending } from "../features/movies/movieSlice";
 
 const Trending:React.FC=()=>{
+    const movies=useSelector(selectTrending);
 
     return(
         <Container>
             <h4>Trendings</h4>
             <Content>
-                <Wrap>
-                    <Link to="/" >
-                    <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/4622/1534622-v-49ee55ea1cae" alt="" />
+
+                {movies && movies.map((movie,key)=>{
+                    return <Wrap key={key}>
+                    <Link to={"/trendings/"+ movie.id} >
+                    <img src={movie.cardImg} alt={movie.title} />
                     </Link>
                 </Wrap>
-                <Wrap>
-                    <Link to="/" >
-                    <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/6846/1740399626846-v" alt="" />
-                    </Link>
-                </Wrap>
-                <Wrap>
-                    <Link to="/" >
-                    <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/7502/1734341097502-v" alt="" />
-                    </Link>
-                </Wrap>
-                <Wrap>
-                    <Link to="/" >
-                    <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/237/1734086580237-v" alt="" />
-                    </Link>
-                </Wrap>
+                    
+                    
+                    })}
             </Content>
         </Container>
 
         
     )
 }
+
 
 const Container=styled.div`
 
@@ -46,18 +40,24 @@ margin:0px 10px;
 display:grid;
 grid-gap:25px;
 gap:25px;
-grid-template-columns:repeat(4,minmax(0,1fr));
+grid-template-columns:repeat(6,minmax(0,1fr));
 
+
+@media (max-width:1000px){
+    grid-template-columns:repeat(4,minmax(0,1fr));
+
+}
 
 @media (max-width:768px){
-    grid-template-columns:repeat(2,minmax(0,1fr));
+    grid-template-columns:repeat(3,minmax(0,1fr));
 
 }
 
 `;
 
+
 const Wrap=styled.div`
- aspect-ratio: 380 / 500;
+ aspect-ratio: 390 / 520;
 border-radius:10px;
 box-shadow: rgb(0 0 0 /69%) 0px 26px 30px -10px,
     rgb(0 0 0 /73%) 0px 16px 10px -10px;
@@ -89,10 +89,13 @@ box-shadow: rgb(0 0 0 /69%) 0px 26px 30px -10px,
         transform:scale(1.05);
         border-color:rgba(249,249,249,0.8);
     
+       
+    
     }
 
-`;
 
+
+    `;
 
 
 export default Trending;
