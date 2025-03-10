@@ -29,7 +29,6 @@ const Header: React.FC = () => {
       if (user) {
         // Wait a moment to ensure all user data is loaded
         setTimeout(() => {
-          console.log("User photo after delay:", user.photoURL);
           setUser(user);
         }, 500);
       }

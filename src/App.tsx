@@ -21,7 +21,8 @@ const App=()=>{
     
     <Route path='/' element={ <Login/>}  />
     <Route path='/home' element={ <Home/>}  />
-    <Route path="/detail/:id" element={ <Detailed/>} />
+    <Route path="/:category/detail/:id" element={<Detailed />} />
+
     
    
    

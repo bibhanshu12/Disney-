@@ -16,7 +16,7 @@ const Originals:React.FC=()=>{
 
                         return(
                             <Wrap key={key}>
-                            <Link to={"/disneyoriginals/"+ movie.id} >
+                            <Link to={"/originals/detail/"+ movie.id} >
                             <img src={movie.cardImg} alt={movie.title} />
                             </Link>
                         </Wrap>

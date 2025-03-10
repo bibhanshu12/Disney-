@@ -15,7 +15,7 @@ const Recommend:React.FC=()=>{
                   moovies && moovies.map((movie,key)=>{
                        return <Wrap key={key}>
                             
-                            <Link to={"/movies/recommended/"+movie.id}>
+                            <Link to={"/recommend/detail"+movie.id}>
                             <img src={movie.cardImg} alt={movie.title} />
                             </Link>
                         </Wrap>

@@ -24,7 +24,7 @@ const NewDisney:React.FC=()=>{
       return <>
        
        <Wrap key={key}>
-                    <Link to={"/new/"+movie.id} >
+                    <Link to={"/new/detail/"+movie.id} >
                     <img src={movie.cardImg} alt={movie.title} />
                     </Link>
                 </Wrap>

@@ -14,7 +14,7 @@ const Trending:React.FC=()=>{
 
                 {movies && movies.map((movie,key)=>{
                     return <Wrap key={key}>
-                    <Link to={"/trendings/"+ movie.id} >
+                    <Link to={"/trendings/detail/"+ movie.id} >
                     <img src={movie.cardImg} alt={movie.title} />
                     </Link>
                 </Wrap>
