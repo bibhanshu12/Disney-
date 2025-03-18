@@ -1,12 +1,21 @@
 import styled from "styled-components";
-import React, { useState, useEffect } from "react";
+import  { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { db } from "../firebase";
 import { doc, getDoc } from "firebase/firestore";
 
+interface MovieDetail {
+  title?: string;
+  titleImg?: string;
+  backgroundImg?: string;
+  trailerId?: string;
+  subTitle?: string;
+  description?: string;
+}
+
 const Detailed = () => {
-  const {id } = useParams();
-  const [detailData, setDetailData] = useState({});
+  const { id } = useParams<{ id: string }>(); // Ensure id is string
+  const [detailData, setDetailData] = useState<MovieDetail | null>(null); // Use a proper type
   const [showTrailer, setShowTrailer] = useState(false);
 
   useEffect(() => {
@@ -18,7 +27,7 @@ const Detailed = () => {
         const docSnap = await getDoc(docRef);
 
         if (docSnap.exists()) {
-          setDetailData(docSnap.data());
+          setDetailData(docSnap.data() as MovieDetail); // Type assertion
         } else {
           console.log("No such document in Firestore!");
         }
@@ -36,58 +45,59 @@ const Detailed = () => {
 
   return (
     <Container>
-      <Background showTrailer={showTrailer}>
-        {showTrailer ? (
-          <TrailerWrapper>
-            <CloseButton onClick={handleCloseTrailer}>×</CloseButton>
+    <Background showTrailer={showTrailer}>
+      {showTrailer ? (
+        <TrailerWrapper>
+          <CloseButton onClick={handleCloseTrailer}>×</CloseButton>
+          {detailData?.trailerId && (
             <iframe
               width="100%"
               height="100%"
               src={`https://www.youtube.com/embed/${detailData.trailerId}?autoplay=1&controls=1`}
               title="YouTube video player"
-              frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             ></iframe>
-          </TrailerWrapper>
-        ) : (
-          detailData.backgroundImg && <img src={detailData.backgroundImg} alt={detailData.title || "Background"} />
-        )}
-      </Background>
-
-      {!showTrailer && (
-        <>
-          <ImageTitle>
-            {detailData.titleImg && <img src={detailData.titleImg} alt={detailData.title || "Title"} />}
-          </ImageTitle>
-
-          <ContentWrapper>
-            <Controls>
-              <Player>
-                <img src="/images/play-icon-black.png" alt="play" />
-                <span>Play</span>
-              </Player>
-              <Trailer onClick={() => setShowTrailer(true)}>
-                <img src="/images/play-icon-white.png" alt="trailer" />
-                <span>Trailer</span>
-              </Trailer>
-              <Addlist>
-                <span />
-                <span />
-              </Addlist>
-              <GroupWatch>
-                <div>
-                  <img src="/images/group-icon.png" alt="group watch" />
-                </div>
-              </GroupWatch>
-            </Controls>
-
-            <SubTitle>{detailData.subTitle}</SubTitle>
-            <Description>{detailData.description}</Description>
-          </ContentWrapper>
-        </>
+          )}
+        </TrailerWrapper>
+      ) : (
+        detailData?.backgroundImg && <img src={detailData.backgroundImg} alt={detailData.title || "Background"} />
       )}
-    </Container>
+    </Background>
+
+    {!showTrailer && detailData && (
+      <>
+        <ImageTitle>
+          {detailData.titleImg && <img src={detailData.titleImg} alt={detailData.title || "Title"} />}
+        </ImageTitle>
+
+        <ContentWrapper>
+          <Controls>
+            <Player>
+              <img src="/images/play-icon-black.png" alt="play" />
+              <span>Play</span>
+            </Player>
+            <Trailer onClick={() => setShowTrailer(true)}>
+              <img src="/images/play-icon-white.png" alt="trailer" />
+              <span>Trailer</span>
+            </Trailer>
+            <Addlist>
+              <span />
+              <span />
+            </Addlist>
+            <GroupWatch>
+              <div>
+                <img src="/images/group-icon.png" alt="group watch" />
+              </div>
+            </GroupWatch>
+          </Controls>
+
+          <SubTitle>{detailData.subTitle}</SubTitle>
+          <Description>{detailData.description}</Description>
+        </ContentWrapper>
+      </>
+    )}
+  </Container>
   );
 };
 
