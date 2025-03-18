@@ -45,7 +45,7 @@ const Detailed = () => {
 
   return (
     <Container>
-    <Background showTrailer={showTrailer}>
+    <Background $showTrailer={showTrailer}>
       {showTrailer ? (
         <TrailerWrapper>
           <CloseButton onClick={handleCloseTrailer}>×</CloseButton>
@@ -110,7 +110,7 @@ const Container = styled.div`
   padding: 0 calc(3.5vw + 5px);
 `;
 
-const Background = styled.div`
+const Background = styled.div<{ $showTrailer: boolean }>`
   left: 0;
   opacity: 0.8;
   position: fixed;
@@ -120,7 +120,7 @@ const Background = styled.div`
   height: 100vh;
   width: 100vw;
   
-  ${props => props.showTrailer && `
+  ${(props) => props.$showTrailer && `
     z-index: 10;
     opacity: 1;
     background-color: rgba(0, 0, 0, 0.9);
@@ -139,6 +139,7 @@ const Background = styled.div`
     }
   }
 `;
+
 
 const TrailerWrapper = styled.div`
   position: relative;

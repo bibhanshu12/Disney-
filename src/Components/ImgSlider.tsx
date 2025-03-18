@@ -1,10 +1,7 @@
-import React from "react";
 import styled from "styled-components";
 import { Swiper , SwiperSlide } from "swiper/react";
-import { Link, NavLink } from "react-router-dom";
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
+import {NavLink } from "react-router-dom";
+import "swiper/swiper-bundle.css";
 import { Navigation, Pagination,Autoplay } from 'swiper/modules';
 
 
