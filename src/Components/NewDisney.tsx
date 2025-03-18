@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
+import * as React from "react";
 import { Link} from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectNewDisney } from "../features/movies/movieSlice";
