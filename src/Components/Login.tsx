@@ -1,12 +1,59 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
+import { auth, provider } from "../firebase";
+
+import {signInWithPopup,User } from "firebase/auth";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  selectuserName,
+  // selectuserEmail,
+  setusersLogindetails,setuserSignoutstate
+} from "../features/users/userSlice";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const username = useSelector(selectuserName);
+
+   const handleauth = () => {
+      if (!username) {
+        // User logs in
+        signInWithPopup(auth, provider)
+          .then((result) => {
+            setUser(result.user); 
+            navigate("/home"); // Navigate only after login
+          })
+          .catch((error) => alert(error.message));
+      } else {
+        // User logs out
+        auth.signOut()
+          .then(() => {
+            dispatch(setuserSignoutstate());
+            navigate("/");
+          })
+          .catch((err) => alert(err.message));
+      }
+    };
+    
+      const setUser=(user:User)=>{
+            dispatch(
+                setusersLogindetails({
+                name:user.displayName,
+                email:user.email,
+                photo:user.photoURL,
+                })
+            )
+    
+      }
+    
+
   return (
     <Container>
       <Content>
         <CTA>
           <CTAimagesOne src="/images/cta-logo-one.svg" alt="CTA One " />
-          <SignUpbtn>GET ALL THERE </SignUpbtn>
+          <SignUpbtn onClick={handleauth}  >GET ALL THERE </SignUpbtn>
           <Discription>
             Get the best of Disney, Pixar, Marvel, Star Wars, and National
             Geographic. Sign up now for unlimited streaming of your favorite

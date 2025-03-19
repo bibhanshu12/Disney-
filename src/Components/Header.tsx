@@ -43,7 +43,7 @@ const Header: React.FC = () => {
       // User logs in
       signInWithPopup(auth, provider)
         .then((result) => {
-          setUser(result.user);
+          setUser(result.user); 
           navigate("/home"); // Navigate only after login
         })
         .catch((error) => alert(error.message));
