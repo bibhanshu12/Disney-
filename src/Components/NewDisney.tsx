@@ -9,12 +9,9 @@ const NewDisney:React.FC=()=>{
 
     const movies=useSelector(selectNewDisney);
 
-    const fullState = useSelector((state) => state);
-
     useEffect(() => {
-        console.log("Full Redux State: ", fullState);
         console.log("New Disney Movies: ", movies);
-    }, [movies, fullState]);
+    }, [movies]);
 
     return(
         <Container>

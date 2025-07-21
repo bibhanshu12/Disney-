@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 import { auth, provider } from "../firebase";
 
 import {signInWithPopup,User } from "firebase/auth";

@@ -10,6 +10,15 @@ const storageBucket=import.meta.env.VITE_STRORAGE_BUCKET;
 const messagingSenderId=import.meta.env.VITE_MESSAGING_SENDER_ID;
 const appId=import.meta.env.VITE_APP_ID;
 
+console.log("Firebase environment variables:", {
+  apiKey: apiKey ? "✓ Set" : "✗ Missing",
+  authDomain: authDomain ? "✓ Set" : "✗ Missing", 
+  projectId: projectId ? "✓ Set" : "✗ Missing",
+  storageBucket: storageBucket ? "✓ Set" : "✗ Missing",
+  messagingSenderId: messagingSenderId ? "✓ Set" : "✗ Missing",
+  appId: appId ? "✓ Set" : "✗ Missing"
+});
+
 
 
 const firebaseConfig = {
