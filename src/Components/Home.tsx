@@ -11,7 +11,7 @@ import { useDispatch,useSelector } from "react-redux";
 import { setMovies } from "../features/movies/movieSlice";
 import { selectuserName } from "../features/users/userSlice";
 import { collection, getDocs } from "firebase/firestore";
-import disneyMoviesData from "../disneyPlusMoviesData.json";
+// import disneyMoviesData from "../disneyPlusMoviesData.json";
 
 
 interface Movie {
@@ -23,16 +23,6 @@ interface Movie {
     description: string,
     subTitle: string,
     titleImg: string,
-}
-
-interface JSONMovieData {
-    title: string;
-    type: string;
-    backgroundImg: string;
-    cardImg: string;
-    description: string;
-    subTitle: string;
-    titleImg: string;
 }
 const Home:React.FC=()=>{
 
@@ -105,42 +95,10 @@ const Home:React.FC=()=>{
                     }
                 });
                 
-                // If Firebase is empty, use local JSON data as fallback
+                // Since you have Firebase data, we don't need JSON fallback
+                // If Firebase is empty in the future, you can add sample data here
                 if (movieSnapShots.size === 0) {
-                    console.log("Firebase is empty, using local JSON data as fallback");
-                    
-                    // Process JSON data
-                    Object.values(disneyMoviesData.movies as Record<string, JSONMovieData>).forEach((movieData: JSONMovieData) => {
-                        const movie: Movie = {
-                            id: Math.random().toString(36).substr(2, 9), // Generate random ID
-                            title: movieData.title || "Unknown Title",
-                            type: movieData.type || "unknown",
-                            backgroundImg: movieData.backgroundImg || "",
-                            cardImg: movieData.cardImg || "",
-                            description: movieData.description || "No description available",
-                            subTitle: movieData.subTitle || "",
-                            titleImg: movieData.titleImg || "",
-                        };
-                        
-                        switch(movieData.type){
-                            case 'recommend':
-                                recommends.push(movie)
-                                break;
-
-                            case 'new':
-                                newDisneys.push(movie);
-                                break;
-                            
-                            case 'original':
-                                originals.push(movie);
-                                break;
-
-                            case 'trending':
-                            case "thriller":
-                                trendings.push(movie);
-                                break;
-                        }
-                    });
+                    console.log("No movies found in Firebase");
                 } 
                
                 console.log("Movies fetched:", {
